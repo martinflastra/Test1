@@ -2,57 +2,26 @@
 <html>
 <head>
   <title>Encuesta de Satisfacción</title>
+  <script>
+    function enviarEncuesta() {
+      // Obtener valores seleccionados de las preguntas
+      var pregunta1 = document.querySelector('input[name="pregunta1"]:checked').value;
+      var pregunta2 = document.querySelector('input[name="pregunta2"]:checked').value;
+      // Guardar las respuestas en un objeto JSON
+      var respuestas = {
+        "pregunta1": pregunta1,
+        "pregunta2": pregunta2
+      };
+      // Convertir el objeto JSON a una cadena
+      var respuestasJSON = JSON.stringify(respuestas);
+      // Mostrar las respuestas en una alerta
+      alert(respuestasJSON);
+    }
+  </script>
 </head>
 <body>
-  <h1>Encuesta de Satisfacción</h1>
   <form>
-    <label for="pregunta1">¿Cómo calificaría la atención recibida?</label>
-    <br>
-    <input type="radio" id="pregunta1" name="pregunta1" value="Excelente"> Excelente
-    <input type="radio" id="pregunta1" name="pregunta1" value="Bueno"> Bueno
-    <input type="radio" id="pregunta1" name="pregunta1" value="Regular"> Regular
-    <input type="radio" id="pregunta1" name="pregunta1" value="Malo"> Malo
-    <br><br>
-    <label for="pregunta2">¿Recomendaría nuestros servicios?</label>
-    <br>
-    <input type="radio" id="pregunta2" name="pregunta2" value="Sí"> Sí
-    <input type="radio" id="pregunta2" name="pregunta2" value="No"> No
-    <br><br>
-    <input type="submit" value="Enviar encuesta">
-  </form>
-  <br>
-  <h2>Resultados generales</h2>
-  <div id="resultados"></div>
-  <script>
-    var pregunta1 = document.getElementsByName("pregunta1");
-    var pregunta2 = document.getElementsByName("pregunta2");
-    var excelente = 0;
-    var bueno = 0;
-    var regular = 0;
-    var malo = 0;
-    var si = 0;
-    var no = 0;
-    document.getElementsByTagName("form")[0].onsubmit = function() {
-      for (var i = 0; i < pregunta1.length; i++) {
-        if (pregunta1[i].checked) {
-          if (pregunta1[i].value == "Excelente") {
-            excelente++;
-          } else if (pregunta1[i].value == "Bueno") {
-            bueno++;
-          } else if (pregunta1[i].value == "Regular") {
-            regular++;
-          } else if (pregunta1[i].value == "Malo") {
-            malo++;
-          }
-        }
-      }
-      for (var i = 0; i < pregunta2.length; i++) {
-        if (pregunta2[i].checked) {
-          if (pregunta2[i].value == "Sí") {
-            si++;
-          } else if (pregunta2[i].value == "No") {
-            no++;
-          }
-        }
-      }
-      document.get
+    <h3>Pregunta 1</h3>
+    <input type="radio" name="pregunta1" value="Muy satisfecho"> Muy satisfecho<br>
+    <input type="radio" name="pregunta1" value="Satisfecho"> Satisfecho<br>
+    <input type="radio"
